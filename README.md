@@ -10,7 +10,7 @@ There are a number of different ways to set up LISP, this article is only about 
 
 ![Lisp-example1](/lisp1.png)
 
-In the drawing there are two pc's that can reach eahc other. However, the closest router to the pc's are not able to ping the other router, nor the pc on the oposite router, since the source-ip is the gateway of both the routers.
+In the drawing there are two pc's that can reach each other. However, the closest router to the pc's are not able to ping the other router, nor the pc on the oposite router, since the source-ip is the gateway of both the routers.
 
 ![Lisp-example2](/lisp2.png)
 
