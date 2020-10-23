@@ -31,21 +31,21 @@ interface GigabitEthernet0/2||interface GigabitEthernet0/2
  lisp mobility VRF3|| lisp mobility VRF3
 ||
 router lisp|router lisp|router lisp
- locator-set Site1|site Felles|locator-set Site2
-  IPv4-interface Loopback0 priority 10 weight 10|authentication-key cisco| IPv4-interface Loopback0 priority 10 weight 10
-  exit| eid-prefix 40.1.0.0/24 accept-more-specifics| exit
+ locator-set Site1||locator-set Site2
+  IPv4-interface Loopback0 priority 10 weight 10|| IPv4-interface Loopback0 priority 10 weight 10
+  exit| | exit
  !| exit|!
- site Site1|!|site Site2
-  authentication-key cisco| ipv4 map-server|  authentication-key cisco
-  exit| ipv4 map-resolver| exit
- !| exit|!
- dynamic-eid VRF3|| dynamic-eid VRF3
+ site Site1|site Felles|site Site2
+  authentication-key cisco|authentication-key cisco |  authentication-key cisco
+  exit|eid-prefix 40.1.0.0/24 accept-more-specifics | exit
+ !| |!
+ dynamic-eid VRF3|eid-prefix 40.1.0.0/24 accept-more-specifics| dynamic-eid VRF3
   database-mapping 40.1.0.0/24 locator-set Site1|| database-mapping 40.1.0.0/24 locator-set Site2
   exit||exi
  !||!
  ipv4 use-petr 5.1.1.1||ipv4 use-petr 5.1.1.1
  ipv4 itr map-resolver 5.1.1.1||ipv4 itr map-resolver 5.1.1.1
  ipv4 itr||ipv4 itr
- ipv4 etr map-server 5.1.1.1 key cisco||ipv4 etr map-server 5.1.1.1 key cisco
- ipv4 etr||ipv4 etr
- exit||exit
+ ipv4 etr map-server 5.1.1.1 key cisco|ipv4 map-server|ipv4 etr map-server 5.1.1.1 key cisco
+ ipv4 etr|ipv4 map-resolver|ipv4 etr
+ exit|exit|exit
